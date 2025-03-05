@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:local_cricket/screens/waiting_list_screen.dart';
 import 'package:local_cricket/utils/app_colors.dart';
 import 'package:local_cricket/utils/app_images.dart';
 
@@ -24,6 +26,10 @@ class Splash extends StatelessWidget {
 
   //run splash screen for 3 seconds
   Future<void> runSplash() async {
-    await Future.delayed(const Duration(seconds: 3), () {});
+    await Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const WaitingListScreen(),
+          transition: Transition.circularReveal,
+          duration: const Duration(milliseconds: 1000));
+    });
   }
 }
